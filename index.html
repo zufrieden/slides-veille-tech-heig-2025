@@ -3272,91 +3272,7 @@ Press Ctrl+C to stop</code></pre>
 							</li>
 						</ul>
 					</section>
-					<section>
-						<h2>Hosting GitHub</h2>
-						<p>
-							Documentation complète 
-							<a href="https://pages.github.com/">pages.github.com</a>
-						</p>							
-					</section>
-					<section>
-						<h4>https://github.com/<mark class="fragment">USERNAME</mark>/<mark class="fragment">REPOSITORY</mark></h4>
-						<h4>https://<mark class="fragment">USERNAME</mark>.github.io/<mark class="fragment">REPOSITORY</mark></h4>
-					</section>
-					<section data-background-image="src/veille_github_actions_1.png" data-background-size="contain">
-						<aside class="notes"></aside>
-					</section>
-					<section data-background-image="src/veille_github_actions_2.png" data-background-size="contain">
-						<aside class="notes"></aside>
-					</section>
-					<section data-background-image="src/veille_github_actions_3.png" data-background-size="contain">
-						<aside class="notes"></aside>
-					</section>
-					<section data-background-image="src/veille_github_actions_4.png" data-background-size="contain">
-						<aside class="notes"></aside>
-					</section>
-					<section>
-						<h3>Actions Hugo</h3>
-						<p>
-							<a href="https://github.com/peaceiris/actions-hugo">github.com/peaceiris/actions-hugo</a>	
-						</p>
-						<p>
-							<mark>
-								.github/workflows/gh-pages.yml
-							</mark>
-						</p>
-					</section>					
-					<section>
-						<pre><code>
-name: github pages
-
-on:
-  push:
-	branches:
-	  - main  # Set a branch to deploy
-
-...
-						</code></pre>
-					</section>
-				<section>
-					<pre><code>
-...
-
-jobs:
-  deploy:
-	runs-on: ubuntu-22.04
-	concurrency:
-	  group: ${{ github.workflow }}-${{ github.ref }}
-	steps:
-	  - uses: actions/checkout@v4
-		with:
-		  submodules: true  # Fetch Hugo themes (true OR recursive)
-		  fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-...
-					</code></pre>
-				</section>
-				<section>
-					<pre><code>
-...
-
-  - name: Setup Hugo
-	uses: peaceiris/actions-hugo@v3
-	with:
-	  hugo-version: '0.119.0'
-	  # extended: true
-
-  - name: Build
-	run: hugo --minify
-
-  - name: Deploy
-	uses: peaceiris/actions-gh-pages@v3
-	if: github.ref == 'refs/heads/main'
-	with:
-	  github_token: ${{ secrets.GITHUB_TOKEN }}
-	  publish_dir: ./public
-					</code></pre>
-				</section>				
+							
 				
 				<section>
 					<h1>À demain !</h1>
@@ -4570,10 +4486,6 @@ document.body.appendChild(document.createElement('p'))
 						<h2>Au menu 👨🏻‍🍳</h2>
 						<ol class="steps">
 							<li class="fragment fade-up">
-								<span class="step-icon">💡</span>
-								<strong class="step-name">Théorie</strong>
-							</li>
-							<li class="fragment fade-up">
 								<span class="step-icon">🌏</span>
 								<strong class="step-name">Déployer</strong>
 							</li>
@@ -4672,677 +4584,91 @@ document.body.appendChild(document.createElement('p'))
 							Deploy 🚀
 						</h1>
 					</section>
-					<!-- <section>
-						
+					<section>
+											<h2>Hosting GitHub</h2>
+											<p>
+												Documentation complète 
+												<a href="https://pages.github.com/">pages.github.com</a>
+											</p>							
+										</section>
+										<section>
+											<h4>https://github.com/<mark class="fragment">USERNAME</mark>/<mark class="fragment">REPOSITORY</mark></h4>
+											<h4>https://<mark class="fragment">USERNAME</mark>.github.io/<mark class="fragment">REPOSITORY</mark></h4>
+										</section>
+										<section data-background-image="src/veille_github_actions_1.png" data-background-size="contain">
+											<aside class="notes"></aside>
+										</section>
+										<section data-background-image="src/veille_github_actions_2.png" data-background-size="contain">
+											<aside class="notes"></aside>
+										</section>
+										<section data-background-image="src/veille_github_actions_3.png" data-background-size="contain">
+											<aside class="notes"></aside>
+										</section>
+										<section data-background-image="src/veille_github_actions_4.png" data-background-size="contain">
+											<aside class="notes"></aside>
+										</section>
+										<section>
+											<h3>Actions Hugo</h3>
+											<p>
+												<a href="https://github.com/peaceiris/actions-hugo">github.com/peaceiris/actions-hugo</a>	
+											</p>
+											<p>
+												<mark>
+													.github/workflows/gh-pages.yml
+												</mark>
+											</p>
+										</section>					
+										<section>
+											<pre><code>
+name: github pages
 
-						<svg
-						   version="1.1"
-						   id="svg108"
-						   width="100%"
-						   height="100%"
-						   viewBox="0 0 1443.076 840.29694"
-						   xmlns="http://www.w3.org/2000/svg"
-						   xmlns:svg="http://www.w3.org/2000/svg">
-						  <defs
-							 id="defs112">
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath146">
-							  <path
-								 d="m 487.1826,349.4327 h 106.6973 v 64.19922 H 487.1826 Z"
-								 id="path144" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath160">
-							  <path
-								 d="M 406.0461,246.7115 H 675.0166 V 515.7338 H 406.0461 Z"
-								 id="path158" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath170">
-							  <path
-								 d="m 141.1758,438.3555 h 152 v 61.73438 h -152 z"
-								 id="path168" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath180">
-							  <path
-								 d="m 142.1758,439.3555 h 150 v 59.73438 h -150 z"
-								 id="path178" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath194">
-							  <path
-								 d="m 492.7822,175.4208 h 95.49803 v 52.57812 H 492.7822 Z"
-								 id="path192" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath204">
-							  <path
-								 d="m 493.7822,176.4208 h 93.49803 v 50.57812 H 493.7822 Z"
-								 id="path202" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath218">
-							  <path
-								 d="m 141.1758,206.0664 h 152 v 69.4375 h -152 z"
-								 id="path216" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath228">
-							  <path
-								 d="m 142.1758,207.0664 h 150 v 67.4375 h -150 z"
-								 id="path226" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath242">
-							  <path
-								 d="m 141.1758,160.2539 h 152 v 43.87891 h -152 z"
-								 id="path240" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath252">
-							  <path
-								 d="m 142.1758,161.2539 h 150 v 41.87891 h -150 z"
-								 id="path250" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath266">
-							  <path
-								 d="m 676.1758,438.3555 h 152 v 61.73438 h -152 z"
-								 id="path264" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath276">
-							  <path
-								 d="m 677.1758,439.3555 h 150 v 59.73438 h -150 z"
-								 id="path274" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath290">
-							  <path
-								 d="m 712.1758,392.207 h 152 v 43.87891 h -152 z"
-								 id="path288" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath300">
-							  <path
-								 d="m 713.1758,393.207 h 150 v 41.87891 h -150 z"
-								 id="path298" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath314">
-							  <path
-								 d="m 717.1758,160.2539 h 152 v 43.87891 h -152 z"
-								 id="path312" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath324">
-							  <path
-								 d="m 718.1758,161.2539 h 150 v 41.87891 h -150 z"
-								 id="path322" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath338">
-							  <path
-								 d="m 281.8702,126.1806 h 447.6073 v 39.44907 H 281.8702 Z"
-								 id="path336" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath350">
-							  <path
-								 d="m 172.1758,346.916 h 152 v 43.87891 h -152 z"
-								 id="path348" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath360">
-							  <path
-								 d="m 173.1758,347.916 h 150 v 41.87891 h -150 z"
-								 id="path358" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath374">
-							  <path
-								 d="m 172.1758,392.207 h 152 v 43.87891 h -152 z"
-								 id="path372" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath384">
-							  <path
-								 d="m 173.1758,393.207 h 150 v 41.87891 h -150 z"
-								 id="path382" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath404">
-							  <path
-								 d="m 205.1758,299.3047 h 152 v 43.87891 h -152 z"
-								 id="path402" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath414">
-							  <path
-								 d="m 206.1758,300.3047 h 150 v 41.87891 h -150 z"
-								 id="path412" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath428">
-							  <path
-								 d="m 712.1758,346.0586 h 152 v 43.87891 h -152 z"
-								 id="path426" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath438">
-							  <path
-								 d="m 713.1758,347.0586 h 150 v 41.87891 h -150 z"
-								 id="path436" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath452">
-							  <path
-								 d="m 762.1758,299.3047 h 152 v 43.87891 h -152 z"
-								 id="path450" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath462">
-							  <path
-								 d="m 763.1758,300.3047 h 150 v 41.87891 h -150 z"
-								 id="path460" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath476">
-							  <path
-								 d="m 829.1758,253.0254 h 152 v 43.87891 h -152 z"
-								 id="path474" />
-							</clipPath>
-							<clipPath
-							   clipPathUnits="userSpaceOnUse"
-							   id="clipPath486">
-							  <path
-								 d="m 830.1758,254.0254 h 150 v 41.87891 h -150 z"
-								 id="path484" />
-							</clipPath>
-						  </defs>
-						  <g
-							 id="g116"
-							 transform="matrix(1.3333333,0,0,-1.3333333,0,840.29693)">
-							<g
-							   id="g140">
-							  <g
-								 id="g142"
-								 clip-path="url(#clipPath146)">
-								<g
-								   id="g148"
-								   transform="translate(498.291,367.626)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:36px;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text152"><tspan
-									   x="0 25.542 44.891998 65.033997"
-									   y="0"
-									   id="tspan150">Hugo</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g154">
-							  <g
-								 id="g156"
-								 clip-path="url(#clipPath160)">
-								<path
-								   d="m 566.2039,514.7071 c -1.3202,0.1668 -2.184,-0.4357 -3.0868,-2.1066 -3.6749,-6.8005 -7.6714,-13.4473 -11.4924,-20.169 -1.4143,-2.4882 -3.0118,-3.6987 -6.2989,-3.3789 -5.7346,0.5567 -11.572,0.5086 -17.2907,-0.4797 -2.5857,-0.4458 -4.0506,0.2105 -5.4646,2.4194 -4.331,6.7712 -8.9775,13.3272 -13.3279,20.0856 -1.2196,1.8948 -2.1727,2.1429 -4.1923,1.2097 -13.1424,-6.0709 -26.3352,-12.089 -39.5871,-17.9164 -2.4222,-1.0642 -2.4178,-2.1746 -1.7938,-4.3592 2.1659,-7.586 3.9993,-15.2553 6.1738,-22.8387 0.7058,-2.465 0.4109,-4.0919 -1.6477,-5.7775 -4.6,-3.7696 -8.7394,-8.0877 -12.1807,-12.9106 -1.8289,-2.5637 -3.743,-2.7839 -6.3406,-2.2526 -7.5767,1.5471 -15.1972,2.9143 -22.7345,4.6303 -2.4307,0.554 -3.4713,0.0365 -4.3175,-2.2526 -4.9663,-13.4388 -10.0164,-26.8557 -15.1424,-40.2338 -0.8609,-2.2472 -0.5143,-3.3656 1.7103,-4.5677 6.8005,-3.6749 13.4238,-7.6747 20.1482,-11.4924 2.5069,-1.4229 3.6519,-3.0287 3.2955,-6.3197 -0.6208,-5.7313 -0.3119,-11.5708 0.6465,-17.2908 0.4353,-2.6 -0.3421,-4.0453 -2.5237,-5.4437 -6.7671,-4.3377 -13.3433,-8.9835 -20.1064,-13.3278 -1.9187,-1.2327 -2.0681,-2.2181 -1.1472,-4.2132 6.0663,-13.1444 12.0689,-26.3157 17.8956,-39.5663 1.0701,-2.4329 2.1775,-2.4173 4.3591,-1.7937 7.5854,2.1678 15.2484,4.1083 22.8805,6.1112 1.1342,0.2977 2.2836,0.4735 3.4623,0.7091 0.5666,-0.6658 1.0341,-1.2439 1.5226,-1.7937 4.0527,-4.5579 8.4438,-8.8085 13.3695,-12.3475 2.6638,-1.914 3.1306,-3.8671 2.5446,-6.6953 -1.5698,-7.5713 -2.9392,-15.1745 -4.6511,-22.7135 -0.5482,-2.4146 -0.0521,-3.4878 2.2525,-4.3384 13.4402,-4.9643 26.8557,-10.0152 40.2338,-15.1424 2.2416,-0.8593 3.3636,-0.539 4.5677,1.6895 3.6743,6.8005 7.6621,13.431 11.4924,20.1481 1.407,2.466 2.9617,3.7717 6.2781,3.4206 5.5811,-0.5913 11.3292,-0.6577 16.8527,0.438 3.3726,0.6703 4.8198,-0.7399 6.3823,-3.1286 4.2362,-6.4788 8.6842,-12.8239 12.869,-19.3347 1.2099,-1.8821 2.1532,-2.1526 4.1923,-1.2097 13.1404,6.0743 26.3163,12.0635 39.5663,17.8956 2.3955,1.0525 2.4697,2.1482 1.8354,4.3591 -2.1745,7.5834 -4.0052,15.2541 -6.1737,22.8388 -0.6993,2.4493 -0.4415,4.0851 1.6269,5.7774 4.6039,3.7637 8.7435,8.0763 12.2015,12.8899 1.8106,2.5202 3.6651,2.8383 6.2989,2.2943 7.572,-1.5652 15.1964,-2.919 22.7344,-4.6304 2.4145,-0.5495 3.4858,-0.0749 4.3384,2.2318 4.965,13.4401 10.0172,26.855 15.1424,40.2337 0.8555,2.2312 0.5469,3.3796 -1.6895,4.5886 -6.8004,3.6743 -13.4284,7.6458 -20.1481,11.4716 -2.4855,1.4149 -3.6828,3.0053 -3.3163,6.3197 0.6337,5.7282 0.3058,11.5695 -0.6466,17.2907 -0.4313,2.5903 0.3323,4.0395 2.5237,5.4438 6.7685,4.335 13.3245,8.9788 20.0856,13.3278 1.9008,1.2229 2.1205,2.1975 1.1889,4.2132 -6.0697,13.1431 -12.0682,26.3144 -17.8956,39.5663 -1.0662,2.4241 -2.1756,2.4158 -4.3592,1.7937 -7.7309,-2.2025 -15.5554,-4.1101 -23.2976,-6.278 -2.132,-0.596 -3.5177,-0.2835 -4.964,1.5017 -3.749,4.6293 -8.2073,8.6246 -12.9941,12.0972 -2.6344,1.9116 -3.1388,3.8476 -2.5446,6.6952 1.5785,7.5694 2.9372,15.1763 4.6512,22.7136 0.5501,2.4184 0.0482,3.4882 -2.2526,4.3383 -13.4395,4.9658 -26.8551,10.0166 -40.2338,15.1425 -0.5604,0.2147 -1.0407,0.3618 -1.4809,0.4171 z M 540.5286,442.666 c 33.9317,0 61.4457,-27.5147 61.4456,-61.4457 -6e-4,-33.9316 -27.5146,-61.4456 -61.4456,-61.4456 -33.931,0 -61.4456,27.514 -61.4456,61.4456 0,33.931 27.5146,61.4457 61.4456,61.4457 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path162" />
-							  </g>
-							</g>
-							<g
-							   id="g164">
-							  <g
-								 id="g166"
-								 clip-path="url(#clipPath170)">
-								<path
-								   d="m 142.1758,439.3555 h 150 v 59.73438 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path172" />
-							  </g>
-							</g>
-							<g
-							   id="g174">
-							  <g
-								 id="g176"
-								 clip-path="url(#clipPath180)">
-								<g
-								   id="g182"
-								   transform="translate(180.7456,461.8867)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text186"><tspan
-									   x="0 12.7116 23.1912 33.706799 40.226398 50.363998 60.879601 67.489197"
-									   y="0"
-									   id="tspan184">Content/</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g188">
-							  <g
-								 id="g190"
-								 clip-path="url(#clipPath194)">
-								<path
-								   d="m 493.7822,176.4208 h 93.49803 v 50.57812 H 493.7822 Z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path196" />
-							  </g>
-							</g>
-							<g
-							   id="g198">
-							  <g
-								 id="g200"
-								 clip-path="url(#clipPath204)">
-								<g
-								   id="g206"
-								   transform="translate(512.7383,194.9521)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text210"><tspan
-									   x="0 12.7116 23.1912 33.706799 40.262402 44.694"
-									   y="0"
-									   id="tspan208">Config</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g212">
-							  <g
-								 id="g214"
-								 clip-path="url(#clipPath218)">
-								<path
-								   d="m 142.1758,207.0664 h 150 v 67.4375 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path220" />
-							  </g>
-							</g>
-							<g
-							   id="g222">
-							  <g
-								 id="g224"
-								 clip-path="url(#clipPath228)">
-								<g
-								   id="g230"
-								   transform="translate(185.4766,234.082)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text234"><tspan
-									   x="0 11.223 21.834 31.976999 47.844002 58.041"
-									   y="0"
-									   id="tspan232">Theme/</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g236">
-							  <g
-								 id="g238"
-								 clip-path="url(#clipPath242)">
-								<path
-								   d="m 142.1758,161.2539 h 150 v 41.87891 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path244" />
-							  </g>
-							</g>
-							<g
-							   id="g246">
-							  <g
-								 id="g248"
-								 clip-path="url(#clipPath252)">
-								<g
-								   id="g254"
-								   transform="translate(191.0859,175.9297)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text258"><tspan
-									   x="0 9.3708 15.9876 25.8804 32.4972 36.917999 46.8288"
-									   y="0"
-									   id="tspan256">static/</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g260">
-							  <g
-								 id="g262"
-								 clip-path="url(#clipPath266)">
-								<path
-								   d="m 677.1758,439.3555 h 150 v 59.73438 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path268" />
-							  </g>
-							</g>
-							<g
-							   id="g270">
-							  <g
-								 id="g272"
-								 clip-path="url(#clipPath276)">
-								<g
-								   id="g278"
-								   transform="translate(723.8353,461.8867)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text282"><tspan
-									   x="0 10.9188 21.441601 32.4324 36.979198 41.400002 51.310799"
-									   y="0"
-									   id="tspan280">public/</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g284">
-							  <g
-								 id="g286"
-								 clip-path="url(#clipPath290)">
-								<path
-								   d="m 713.1758,393.207 h 150 v 41.87891 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path292" />
-							  </g>
-							</g>
-							<g
-							   id="g294">
-							  <g
-								 id="g296"
-								 clip-path="url(#clipPath300)">
-								<g
-								   id="g302"
-								   transform="translate(743.9982,407.8828)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text306"><tspan
-									   x="0 4.428 14.94 25.938 35.712002 45.306 50.706001 61.307999 67.914001 83.790001"
-									   y="0"
-									   id="tspan304">index.html</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g308">
-							  <g
-								 id="g310"
-								 clip-path="url(#clipPath314)">
-								<path
-								   d="m 718.1758,161.2539 h 150 v 41.87891 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path316" />
-							  </g>
-							</g>
-							<g
-							   id="g318">
-							  <g
-								 id="g320"
-								 clip-path="url(#clipPath324)">
-								<g
-								   id="g326"
-								   transform="translate(790.4956,175.9297)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text330"><tspan
-									   x="0"
-									   y="0"
-									   id="tspan328">/</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g332">
-							  <g
-								 id="g334"
-								 clip-path="url(#clipPath338)">
-								<g
-								   id="g340"
-								   transform="matrix(1,0,0,-1,283.7944,161.2539)">
-								  <path
-									 d="M 0,0 C 148.8747,40.76437 296.7906,40.76437 443.7478,0"
-									 style="fill:none;stroke:#ffffff;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-									 id="path342" />
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g344">
-							  <g
-								 id="g346"
-								 clip-path="url(#clipPath350)">
-								<path
-								   d="m 173.1758,347.916 h 150 v 41.87891 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path352" />
-							  </g>
-							</g>
-							<g
-							   id="g354">
-							  <g
-								 id="g356"
-								 clip-path="url(#clipPath360)">
-								<g
-								   id="g362"
-								   transform="translate(190.4828,362.5918)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text366"><tspan
-									   x="0 9.9108 20.3976 30.920401 37.447201 47.591999 58.114799 64.497597 72.428398 79.045197 88.956001 99.874802 110.0736"
-									   y="0"
-									   id="tspan364">content-type/</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g368">
-							  <g
-								 id="g370"
-								 clip-path="url(#clipPath374)">
-								<path
-								   d="m 173.1758,393.207 h 150 v 41.87891 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path376" />
-							  </g>
-							</g>
-							<g
-							   id="g378">
-							  <g
-								 id="g380"
-								 clip-path="url(#clipPath384)">
-								<g
-								   id="g386"
-								   transform="translate(204.1293,407.8828)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text390"><tspan
-									   x="0"
-									   y="0"
-									   id="tspan388">_</tspan></text>
-								</g>
-								<g
-								   id="g392"
-								   transform="translate(204.1293,407.8828)">
-								  <text
-									 xml:space="preserve"
-									 transform="matrix(1,0,0,-1,10.51807,0)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text396"><tspan
-									   x="0 4.428 14.94 25.938 35.712002 45.306 50.706001 66.582001"
-									   y="0"
-									   id="tspan394">index.md</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g398">
-							  <g
-								 id="g400"
-								 clip-path="url(#clipPath404)">
-								<path
-								   d="m 206.1758,300.3047 h 150 v 41.87891 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path406" />
-							  </g>
-							</g>
-							<g
-							   id="g408">
-							  <g
-								 id="g410"
-								 clip-path="url(#clipPath414)">
-								<g
-								   id="g416"
-								   transform="translate(216.7201,315.4244)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:15.66px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text420"><tspan
-									   x="0 13.957758 23.217516 32.508595 39.732552 48.491192 57.75095 67.042023 72.856583 81.818802 91.109879 100.40096 105.27592 119.23367"
-									   y="0"
-									   id="tspan418">mon-contenu.md</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g422">
-							  <g
-								 id="g424"
-								 clip-path="url(#clipPath428)">
-								<path
-								   d="m 713.1758,347.0586 h 150 v 41.87891 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path430" />
-							  </g>
-							</g>
-							<g
-							   id="g432">
-							  <g
-								 id="g434"
-								 clip-path="url(#clipPath438)">
-								<g
-								   id="g440"
-								   transform="translate(730.4828,361.7344)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text444"><tspan
-									   x="0 9.9108 20.3976 30.920401 37.447201 47.591999 58.114799 64.497597 72.428398 79.045197 88.956001 99.874802 110.0736"
-									   y="0"
-									   id="tspan442">content-type/</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g446">
-							  <g
-								 id="g448"
-								 clip-path="url(#clipPath452)">
-								<path
-								   d="m 763.1758,300.3047 h 150 v 41.87891 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path454" />
-							  </g>
-							</g>
-							<g
-							   id="g456">
-							  <g
-								 id="g458"
-								 clip-path="url(#clipPath462)">
-								<g
-								   id="g464"
-								   transform="translate(778.6503,314.9805)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text468"><tspan
-									   x="0 15.8742 26.3484 36.858601 45.010799 54.926998 65.401199 75.9114 82.425598 92.5578 103.068 113.6322"
-									   y="0"
-									   id="tspan466">mon-contenu/</tspan></text>
-								</g>
-							  </g>
-							</g>
-							<g
-							   id="g470">
-							  <g
-								 id="g472"
-								 clip-path="url(#clipPath476)">
-								<path
-								   d="m 830.1758,254.0254 h 150 v 41.87891 h -150 z"
-								   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-								   id="path478" />
-							  </g>
-							</g>
-							<g
-							   id="g480">
-							  <g
-								 id="g482"
-								 clip-path="url(#clipPath486)">
-								<g
-								   id="g488"
-								   transform="translate(860.7546,268.7012)">
-								  <text
-									 xml:space="preserve"
-									 transform="scale(1,-1)"
-									 style="font-variant:normal;font-weight:normal;font-size:18px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-									 id="text492"><tspan
-									   x="0 4.9158001 15.4296 26.429399 36.2052 45.800999 51.202801 61.806599 68.414398 84.292198"
-									   y="0"
-									   id="tspan490">Index.html</tspan></text>
-								</g>
-							  </g>
-							</g>
-						  </g>
-						</svg>
+on:
+  push:
+	branches:
+	  - main  # Set a branch to deploy
 
-					</section> -->
+...
+											</code></pre>
+										</section>
+									<section>
+										<pre><code>
+...
+
+jobs:
+  deploy:
+	runs-on: ubuntu-22.04
+	concurrency:
+	  group: ${{ github.workflow }}-${{ github.ref }}
+	steps:
+	  - uses: actions/checkout@v4
+		with:
+		  submodules: true  # Fetch Hugo themes (true OR recursive)
+		  fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+...
+										</code></pre>
+									</section>
+									<section>
+										<pre><code>
+...
+
+  - name: Setup Hugo
+	uses: peaceiris/actions-hugo@v3
+	with:
+	  hugo-version: '0.119.0'
+	  # extended: true
+
+  - name: Build
+	run: hugo --minify
+
+  - name: Deploy
+	uses: peaceiris/actions-gh-pages@v3
+	if: github.ref == 'refs/heads/main'
+	with:
+	  github_token: ${{ secrets.GITHUB_TOKEN }}
+	  publish_dir: ./public
+										</code></pre>
+					</section>		
 					<section>
 						<h3>
 							Socle technologique
@@ -5411,7 +4737,7 @@ document.body.appendChild(document.createElement('p'))
 							<p class="fragment fade-up">5 articles (3 articles résumant un contenu + 1 article sur votre système de veille + 1 article sur l'impact des LLM sur votre apprentissage)</p>
 							<p class="fragment fade-up">1 page à propos</p>
 							<p class="fragment fade-up">Site statique, auto-déployé sur une Github Pages</p>
-							<!-- <p class="fragment fade-up">URL à envoyer via <a href="#">le formulaire</a></p> -->
+							<p class="fragment fade-up">URL à envoyer via <a href="https://forms.gle/CmZHTFhMJNdW3kPx9">le formulaire</a></p>
 						</section>
 					</section>
 				</section>
